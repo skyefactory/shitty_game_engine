@@ -22,13 +22,15 @@ public:
     App();
     ~App();
 
+    vec2<int> GetScreenSize() const{return mWindow.size;}
+
     bool Init(const std::string& windowTitle, int windowWidth, int windowHeight);
 
     LTexture* LoadTexture(const std::string &name, const std::string &path, bool colorKey, const RGB *rgb);
 
-    void RenderTexture(const vec2<float> &pos, const std::string &texName);
+    void RenderTexture(const vec2<float> &pos, const vec2<float> &scale, const SDL_FRect *clip, const std::string &texName);
 
-    LTexture *GetOrLoadTexture(const std::string &name, const std::string &path, bool colorKey, RGB *rgb);
+    LTexture *GetOrLoadTexture(const std::string &name, const std::string &path, bool colorKey = false, RGB* rgb = nullptr);
 
     void shutdown();
     SDL_Renderer* GetRenderer() const {return mRenderer;}

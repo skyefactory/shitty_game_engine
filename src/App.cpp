@@ -61,10 +61,10 @@ LTexture* App::LoadTexture(const std::string &name, const std::string &path, con
     return nullptr;
 }
 
-void App::RenderTexture(const vec2<float>& pos, const std::string& texName) {
+void App::RenderTexture(const vec2<float>& pos, const vec2<float>& scale, const SDL_FRect *clip, const std::string& texName) {
     auto it = mTextures.find(texName);
     if (it != mTextures.end()) {
-        it->second->render(pos, mRenderer);
+        it->second->render(pos, scale, clip, mRenderer);
     } else {
         SDL_Log("RenderTexture: Texture '%s' not found in cache.", texName.c_str());
     }

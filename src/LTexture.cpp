@@ -68,9 +68,18 @@ void LTexture::destroy() {
     mSize = {0, 0};
 }
 
-void LTexture::render(const vec2<float> pos, SDL_Renderer* renderer) const {
-    const SDL_FRect dstRect{pos.x, pos.y, static_cast<float>(mSize.x), static_cast<float>(mSize.y)};
-    SDL_RenderTexture(renderer, mTexture, nullptr, &dstRect);
+void LTexture::render(const vec2<float> pos, const vec2<float> scale, const SDL_FRect* clip, SDL_Renderer* renderer) const {
+    SDL_FRect dstRect{pos.x, pos.y, static_cast<float>(mSize.x), static_cast<float>(mSize.y)};
+    if (clip != nullptr) {
+        dstRect.w = clip->w;
+        dstRect.h = clip->h;
+    }
+
+    if (scale.x > 0.0f && scale.y > 0.0f) {
+        dstRect.w = scale.x;
+        dstRect.h = scale.y;
+    }
+    SDL_RenderTexture(renderer, mTexture, clip, &dstRect);
 }
 
 int LTexture::getWidth() const {return mSize.x;}

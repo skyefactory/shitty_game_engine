@@ -14,12 +14,14 @@ public:
     LTexture();
     ~LTexture();
 
+    static constexpr float kOriginalSize = -1.f;
+
     bool loadFromFile(const std::string &path, SDL_Renderer *renderer);
     bool loadFromFileColorKey(const std::string &path, SDL_Renderer *renderer, int r, int g, int b);
 
     void destroy();
 
-    void render(vec2<float> pos, SDL_Renderer *renderer) const;
+    void render(vec2<float> pos, vec2<float> scale, const SDL_FRect *clip, SDL_Renderer *renderer) const;
 
     [[nodiscard]] int getWidth() const;
     [[nodiscard]] int getHeight() const;
