@@ -17,7 +17,9 @@ int main(int argc, char* args[]) {
     App app;
 
     if (app.Init("Window", 640, 480)) {
-        //Texture Loadingapp.l
+        //Texture Loading
+
+        app.GetOrLoadTexture("test","test.png", true, new RGB{100,0,0});
 
         //Main Loop
         while (!app.gameLoop()->WindowShouldClose()) {

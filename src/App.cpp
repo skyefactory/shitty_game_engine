@@ -40,23 +40,44 @@ bool App::Init(const std::string& windowTitle, const int windowWidth, const int 
     return success;
 }
 
-LTexture* App::LoadTexture(const std::string &name, const std::string &path) {
+LTexture* App::LoadTexture(const std::string &name, const std::string &path, const bool colorKey = false, const RGB* rgb = nullptr) {
 
     // ReSharper disable once CppDFAMemoryLeak
     auto* texture = new LTexture();
-    if (texture->loadFromFile(path, mRenderer)) {
+    if (colorKey && rgb) {
+        if (texture->loadFromFileColorKey(path, mRenderer, rgb->r, rgb->g, rgb->b)) {
+            mTextures[name] = texture;
+            delete rgb;
+            return texture;
+        }
+    }
+    else if (texture->loadFromFile(path, mRenderer)) {
         mTextures[name] = texture;
         return texture;
     }
 
-    SDL_Log("Failed to load texture %s from file %s. Error information: %s,\n",name.c_str(), path.c_str(), SDL_GetError());
+    SDL_Log("Failed to load texture %s. Error information: %s,\n",path.c_str(), SDL_GetError());
     delete texture;
     return nullptr;
 }
 
-LTexture * App::GetTexture(const std::string &name) {
-    return mTextures[name];
+void App::RenderTexture(const vec2<float>& pos, const std::string& texName) {
+    auto it = mTextures.find(texName);
+    if (it != mTextures.end()) {
+        it->second->render(pos, mRenderer);
+    } else {
+        SDL_Log("RenderTexture: Texture '%s' not found in cache.", texName.c_str());
+    }
 }
+
+LTexture* App::GetOrLoadTexture(const std::string& name, const std::string& path, bool colorKey, RGB* rgb) {
+    auto it = mTextures.find(name);
+    if (it != mTextures.end()) {
+        return it->second;
+    }
+    return LoadTexture(name, path, colorKey, rgb);
+}
+
 
 void App::shutdown() {
     for (const auto& pair : mTextures) {

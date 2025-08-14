@@ -1,0 +1,46 @@
+# Build artifacts
+build/
+bin/
+obj/
+out/
+*.o
+*.obj
+*.so
+*.a
+*.lib
+*.dll
+*.exe
+*.out
+*.app
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+CTestTestfile.cmake
+*.cmake
+
+# Visual Studio / Visual Studio Code
+.vscode/
+.vs/
+*.suo
+*.user
+*.userossc
+*.sln.docstates
+
+# CLion / JetBrains IDEs
+.idea/
+cmake-build-*/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
+*.tmp
+
+# Generated files (if any)
+*.generated.*

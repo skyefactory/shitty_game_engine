@@ -196,6 +196,7 @@ CMakeFiles/MyGame.dir/src/main.cpp.obj: \
  /home/host/other\ proj/bad\ idea/dep/SDL3-3.2.20/x86_64-w64-mingw32/include/SDL3/SDL_main_impl.h \
  /home/host/other\ proj/bad\ idea/src/LTexture.h \
  /home/host/other\ proj/bad\ idea/dep/SDL3_image-3.2.4/x86_64-w64-mingw32/include/SDL3_image/SDL_image.h \
+ /home/host/other\ proj/bad\ idea/src/utility.h \
  /home/host/other\ proj/bad\ idea/src/App.h \
  /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/unordered_map \
  /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/ext/aligned_buffer.h \

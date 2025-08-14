@@ -129,5 +129,4 @@ CMakeFiles/MyGame.dir/src/GameLoop.cpp.obj: \
  /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/bits/stl_function.h \
  /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/backward/binders.h \
  /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/bits/range_access.h \
- /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/bits/vector.tcc \
- /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/cstring
+ /usr/lib/gcc/x86_64-w64-mingw32/12-win32/include/c++/bits/vector.tcc
