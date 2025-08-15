@@ -42,7 +42,6 @@ bool App::Init(const std::string& windowTitle, const int windowWidth, const int 
 
 LTexture* App::LoadTexture(const std::string &name, const std::string &path, const bool colorKey = false, const RGB* rgb = nullptr) {
 
-    // ReSharper disable once CppDFAMemoryLeak
     auto* texture = new LTexture();
     if (colorKey && rgb) {
         if (texture->loadFromFileColorKey(path, mRenderer, rgb->r, rgb->g, rgb->b)) {

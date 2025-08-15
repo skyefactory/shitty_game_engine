@@ -22,7 +22,8 @@ add_executable(MyGame src/main.cpp
         src/App.h
         src/GameLoop.cpp
         src/GameLoop.h
-        src/utility.h)
+        src/utility.h
+        src/utility.cpp)
 
 target_include_directories(MyGame PRIVATE ${SDL3_INCLUDE_DIR} ${SDL3_IMG_INCLUDE_DIR})
 

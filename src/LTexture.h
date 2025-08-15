@@ -8,7 +8,11 @@
 #include <string>
 #include "utility.h"
 
-
+/*
+ * This class is a simple texture class that handles loading, rendering, and destroying textures.
+ * Loads from an image file (png) and can apply optional color keying.
+ * Render function can take a clipping rectangle in order to use multiple 'sprites' from a single tex
+ */
 class LTexture {
 public:
     LTexture();
